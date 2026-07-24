@@ -3,6 +3,7 @@ import Image from "next/image";
 import { CTAButton } from "@/components/cta-button";
 import { Reveal } from "@/components/reveal";
 import { siteContent } from "@/data/site-content";
+import { getAssetPath } from "@/lib/site";
 
 export function HeroSection() {
   const heroTitle = "Agenda, financeiro e operação em um só lugar.";
@@ -71,7 +72,7 @@ export function HeroSection() {
 
               <div className="relative overflow-hidden rounded-[26px] border border-[#820AD1]/10 bg-white p-2.5">
                 <Image
-                  src="/showcase/agenda-header.png"
+                  src={getAssetPath("/showcase/agenda-header.png")}
                   alt="Agenda web do Framja"
                   width={1600}
                   height={1000}

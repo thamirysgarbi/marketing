@@ -15,6 +15,7 @@ import { FeatureCard } from "@/components/feature-card";
 import { Reveal } from "@/components/reveal";
 import { SectionTitle } from "@/components/section-title";
 import { siteContent } from "@/data/site-content";
+import { getAssetPath } from "@/lib/site";
 
 const featureIcons = {
   CalendarDays,
@@ -57,7 +58,7 @@ export function FeaturesSection() {
               </div>
               <div className="overflow-hidden rounded-[24px] border border-[#820AD1]/10 bg-white p-2">
                 <Image
-                  src="/showcase/agenda-tablet.png"
+                  src={getAssetPath("/showcase/agenda-tablet.png")}
                   alt="Agenda do Framja em tela ampla"
                   width={1600}
                   height={1000}
@@ -75,7 +76,7 @@ export function FeaturesSection() {
                 </p>
                 <div className="overflow-hidden rounded-[22px] border border-[#820AD1]/10 bg-white p-2">
                   <Image
-                    src="/showcase/operations-dashboard.jpeg"
+                    src={getAssetPath("/showcase/operations-dashboard.jpeg")}
                     alt="Painel operacional do Framja"
                     width={1600}
                     height={1000}
@@ -92,7 +93,7 @@ export function FeaturesSection() {
                 </p>
                 <div className="grid items-end gap-4 sm:grid-cols-[0.95fr,1.05fr]">
                   <Image
-                    src="/showcase/cashier-phone.png"
+                    src={getAssetPath("/showcase/cashier-phone.png")}
                     alt="Caixa do Framja no celular"
                     width={900}
                     height={1800}

@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import { AppShell } from "@/components/marketing-os/app-shell";
+import { publicSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const title = "Framja Marketing OS";
 const description =
   "Sistema interno para o time de marketing do Framja decidir o conteúdo do dia, com roteiro, capturas, legenda, CTA e calendário editorial.";
+const siteUrl = new URL(publicSiteUrl);
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://framja.app.br"),
+  metadataBase: siteUrl,
   title,
   description,
   openGraph: {
     title,
     description,
-    url: "https://framja.app.br/marketing-os",
+    url: siteUrl,
     siteName: "Framja Marketing OS",
     locale: "pt_BR",
     type: "website"

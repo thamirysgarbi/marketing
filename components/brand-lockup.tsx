@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/cn";
+import { getAssetPath } from "@/lib/site";
 
 type BrandLockupProps = {
   className?: string;
@@ -27,7 +28,7 @@ export function BrandLockup({ className, size = "sm" }: BrandLockupProps) {
         )}
       >
         <Image
-          src="/brand/logo.png"
+          src={getAssetPath("/brand/logo.png")}
           alt=""
           aria-hidden="true"
           width={88}
