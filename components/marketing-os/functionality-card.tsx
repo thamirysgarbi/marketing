@@ -41,7 +41,7 @@ export function FunctionalityCard({
 
       {functionality.operationalRole ? (
         <div className="mt-6 rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
-          <p className="text-sm text-[#9f95b7]">Papel na operacao</p>
+          <p className="text-sm text-[#9f95b7]">Papel na operação</p>
           <p className="mt-3 text-[15px] leading-7 text-[#f3efff]">
             {functionality.operationalRole}
           </p>
