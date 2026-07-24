@@ -39,6 +39,12 @@ export interface FramjaFunctionalityGroup {
   description: string;
 }
 
+export interface FramjaFunctionalitySection {
+  id: string;
+  title: string;
+  items: string[];
+}
+
 export interface FramjaSystemFunctionality {
   id: string;
   groupId: string;
@@ -46,9 +52,11 @@ export interface FramjaSystemFunctionality {
   menuPath: string;
   route: string;
   description: string;
+  operationalRole?: string;
   status: ProductStatus;
   icon: IconKey;
   highlights: string[];
+  sections?: FramjaFunctionalitySection[];
 }
 
 export interface MarketingScene {

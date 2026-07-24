@@ -39,6 +39,15 @@ export function FunctionalityCard({
         <Badge variant="neutral">Rota real: {functionality.route}</Badge>
       </div>
 
+      {functionality.operationalRole ? (
+        <div className="mt-6 rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+          <p className="text-sm text-[#9f95b7]">Papel na operacao</p>
+          <p className="mt-3 text-[15px] leading-7 text-[#f3efff]">
+            {functionality.operationalRole}
+          </p>
+        </div>
+      ) : null}
+
       <div className="mt-6 rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
         <p className="text-sm text-[#9f95b7]">O que existe hoje</p>
         <div className="mt-3 space-y-3">
@@ -52,6 +61,29 @@ export function FunctionalityCard({
           ))}
         </div>
       </div>
+
+      {functionality.sections?.length ? (
+        <div className="mt-6 space-y-4">
+          {functionality.sections.map((section) => (
+            <div
+              key={section.id}
+              className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4"
+            >
+              <p className="text-sm text-[#9f95b7]">{section.title}</p>
+              <div className="mt-3 space-y-3">
+                {section.items.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-white/8 bg-[#0f0b18] px-4 py-3 text-[14px] leading-7 text-[#e9e3f8] sm:text-[15px]"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : null}
     </Card>
   );
 }
