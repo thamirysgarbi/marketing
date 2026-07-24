@@ -52,15 +52,15 @@ export function LoginScreen({
 
             <div className="mt-8 max-w-2xl">
               <p className="text-sm font-medium uppercase tracking-[0.24em] text-[#c7aff6]">
-                Acesso interno
+                Acesso ao portal
               </p>
               <h1 className="mt-4 text-[clamp(2.3rem,7vw,5rem)] font-semibold leading-[0.96] tracking-[-0.07em] text-white">
-                Framja Marketing OS protegido por login fixo.
+                Entre para acessar o Framja Marketing OS.
               </h1>
               <p className="mt-5 max-w-xl text-[15px] leading-7 text-[#c7c0d9] sm:text-[17px] sm:leading-8">
-                Essa camada bloqueia o acesso casual ao portal e mantém a
-                operação editorial fora de exposição direta para quem abrir a
-                URL.
+                O portal concentra planejamento, pauta, roadmap e execução da
+                operação editorial em um só lugar, com a mesma linguagem premium
+                do restante do produto.
               </p>
             </div>
 
@@ -71,12 +71,12 @@ export function LoginScreen({
                     <LockKeyhole className="h-4 w-4" />
                   </span>
                   <p className="text-sm font-medium text-white">
-                    Entrada única para o time
+                    Operação protegida
                   </p>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-[#a99fc0]">
-                  Todo o time usa o mesmo login e a mesma senha para entrar no
-                  portal.
+                  Acesse o ambiente antes de abrir calendário, conteúdos,
+                  funcionalidades e roadmap.
                 </p>
               </Card>
 
@@ -86,12 +86,12 @@ export function LoginScreen({
                     <ShieldCheck className="h-4 w-4" />
                   </span>
                   <p className="text-sm font-medium text-white">
-                    Sessão salva no navegador
+                    Fluxo centralizado
                   </p>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-[#a99fc0]">
-                  Depois do primeiro acesso, o navegador mantém a entrada ativa
-                  até alguém sair manualmente.
+                  Toda a estratégia diária fica acessível em uma única camada de
+                  navegação, sem espalhar informação pela operação.
                 </p>
               </Card>
             </div>
@@ -112,8 +112,7 @@ export function LoginScreen({
                   Login e senha
                 </h2>
                 <p className="mt-3 text-[15px] leading-7 text-[#aea5c3]">
-                  Use as credenciais internas para liberar a navegação do
-                  Marketing OS.
+                  Informe suas credenciais para continuar.
                 </p>
 
                 <form className="mt-6 space-y-4" onSubmit={handleSubmit}>

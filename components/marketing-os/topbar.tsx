@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu } from "lucide-react";
+import { LogOut, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatLongDate } from "@/lib/marketing-os/selectors";
 
@@ -36,11 +36,12 @@ export function Topbar({
 
         <Button
           type="button"
-          variant="ghost"
+          variant="secondary"
           size="sm"
           className="shrink-0"
           onClick={onLogout}
         >
+          <LogOut className="h-4 w-4" />
           Sair
         </Button>
       </div>
