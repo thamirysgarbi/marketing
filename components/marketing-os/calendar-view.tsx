@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { PageHeading } from "@/components/marketing-os/page-heading";
 import { useMarketingOs } from "@/components/marketing-os/provider";
-import { PublicationStatusPill, ProductStatusPill } from "@/components/marketing-os/status-pill";
+import { ProductStatusPill, PublicationStatusPill } from "@/components/marketing-os/status-pill";
 import { StatusSelect } from "@/components/marketing-os/status-select";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -55,30 +55,32 @@ export function CalendarView() {
   const weeks = getWeekGroups();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5 sm:space-y-6">
       <PageHeading
         eyebrow="Calendário editorial"
         title="14 dias de produção, em sequência clara."
         description="Em vez de um calendário mensal apertado, aqui a leitura fica em duas semanas operacionais com status editável."
       />
 
-      <div className="flex flex-wrap gap-2">
-        {filters.map((filter) => (
-          <Button
-            key={filter.id}
-            type="button"
-            variant={activeFilter === filter.id ? "primary" : "secondary"}
-            size="sm"
-            onClick={() => setActiveFilter(filter.id)}
-          >
-            {filter.label}
-          </Button>
-        ))}
+      <div className="-mx-3 overflow-x-auto px-3 pb-1 sm:mx-0 sm:px-0">
+        <div className="flex w-max gap-2">
+          {filters.map((filter) => (
+            <Button
+              key={filter.id}
+              type="button"
+              variant={activeFilter === filter.id ? "primary" : "secondary"}
+              size="sm"
+              onClick={() => setActiveFilter(filter.id)}
+            >
+              {filter.label}
+            </Button>
+          ))}
+        </div>
       </div>
 
       <div className="grid min-w-0 gap-6 xl:grid-cols-2">
         {weeks.map((week) => (
-          <Card key={week.id} className="p-5 md:p-6">
+          <Card key={week.id} className="p-4 sm:p-5 md:p-6">
             <div className="flex items-center justify-between gap-3">
               <div>
                 <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
@@ -124,7 +126,7 @@ export function CalendarView() {
                       </div>
                     </div>
 
-                    <div className="mt-4 grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_160px]">
+                    <div className="mt-4 grid min-w-0 gap-4 sm:grid-cols-[minmax(0,1fr)_140px] lg:grid-cols-[minmax(0,1fr)_160px]">
                       <StatusSelect
                         value={currentStatus}
                         compact

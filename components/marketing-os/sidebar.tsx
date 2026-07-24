@@ -34,7 +34,7 @@ export function Sidebar({
   const isCollapsed = mobile ? false : collapsed;
 
   return (
-    <div className="flex h-full flex-col gap-6 p-4">
+    <div className="flex h-full flex-col gap-5 p-3.5 sm:p-4">
       <div className="flex items-center justify-between gap-3">
         <BrandMark collapsed={isCollapsed} />
         {!mobile ? (
@@ -99,7 +99,7 @@ export function Sidebar({
       {!isCollapsed ? (
         <div className="mt-auto rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
           <p className="text-sm font-medium text-white">Foco da ferramenta</p>
-          <p className="mt-2 text-sm leading-7 text-[#9f95b7]">
+          <p className="mt-2 text-sm leading-6 text-[#9f95b7]">
             Abrir, entender o conteúdo do dia e começar a gravar sem perder tempo pensando na estrutura.
           </p>
         </div>
