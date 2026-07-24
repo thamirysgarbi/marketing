@@ -118,7 +118,7 @@ export function CalendarView() {
                     key={post.id}
                     className="min-w-0 rounded-[26px] border border-white/8 bg-white/[0.03] p-4"
                   >
-                    <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0 flex-1">
                         <p className="text-sm text-[#9f95b7]">
                           Dia {post.day} • {formatShortDate(getDateFromDay(post.day))}
@@ -136,7 +136,7 @@ export function CalendarView() {
                         </p>
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 sm:shrink-0">
                         <PublicationStatusPill status={currentStatus} />
                         {feature ? <ProductStatusPill status={feature.status} /> : null}
                       </div>
