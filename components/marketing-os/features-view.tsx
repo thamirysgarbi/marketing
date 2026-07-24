@@ -11,9 +11,9 @@ export function FeaturesView() {
   return (
     <div className="space-y-8">
       <PageHeading
-        eyebrow="Funcionalidades reais do produto"
-        title="Mapa vivo do que já existe dentro do Framja."
-        description="Esta área foi alimentada a partir do sistema real, agrupando os módulos visíveis no menu e os principais recursos encontrados em cada tela."
+        eyebrow="Taxonomia estratégica do produto"
+        title="Cada ferramenta do Framja traduzida em valor, operação e conteúdo."
+        description="A leitura abaixo parte do menu real do sistema e organiza cada módulo por ferramenta, o que resolve, funcionalidades reais, ganho percebido pelo dono, ganho percebido pela cliente final e ganchos que podem virar pauta."
       />
 
       <div className="space-y-8">

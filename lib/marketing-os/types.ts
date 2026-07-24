@@ -45,6 +45,15 @@ export interface FramjaFunctionalitySection {
   items: string[];
 }
 
+export interface FramjaFunctionalityTaxonomy {
+  tool: string;
+  solves: string[];
+  realFeatures: string[];
+  ownerPerceivedGain: string[];
+  clientPerceivedGain: string[];
+  contentHooks: string[];
+}
+
 export interface FramjaSystemFunctionality {
   id: string;
   groupId: string;
@@ -56,6 +65,7 @@ export interface FramjaSystemFunctionality {
   status: ProductStatus;
   icon: IconKey;
   highlights: string[];
+  taxonomy?: FramjaFunctionalityTaxonomy;
   sections?: FramjaFunctionalitySection[];
 }
 
