@@ -33,7 +33,9 @@ function MetaCard({
   return (
     <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
       <p className="text-sm text-[#9f95b7]">{label}</p>
-      <p className="mt-2 text-[15px] leading-7 text-white">{value}</p>
+      <p className="mt-2 text-[14px] leading-6 text-white sm:text-[15px] sm:leading-7">
+        {value}
+      </p>
     </div>
   );
 }
@@ -54,17 +56,25 @@ export function ContentDetailView({
   const currentStatus = getMergedStatus(post, publicationStatuses);
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap items-center gap-3">
+    <div className="space-y-5 sm:space-y-6">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
         <Link
           href="/conteudos"
-          className={buttonVariants({ variant: "secondary", size: "sm" })}
+          className={buttonVariants({
+            variant: "secondary",
+            size: "sm",
+            className: "w-full sm:w-auto"
+          })}
         >
           Voltar para conteúdos
         </Link>
         <Link
           href="/calendario"
-          className={buttonVariants({ variant: "ghost", size: "sm" })}
+          className={buttonVariants({
+            variant: "ghost",
+            size: "sm",
+            className: "w-full sm:w-auto"
+          })}
         >
           Ver calendário
         </Link>
@@ -76,7 +86,7 @@ export function ContentDetailView({
         description={post.summary}
       />
 
-      <Card className="p-6 md:p-8">
+      <Card className="p-4 sm:p-6 md:p-8">
         <p className="text-sm font-medium text-[#bda8ef]">Resumo</p>
         <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
@@ -85,11 +95,11 @@ export function ContentDetailView({
               <DifficultyPill difficulty={post.difficulty} />
               {feature ? <ProductStatusPill status={feature.status} /> : null}
             </div>
-            <p className="mt-4 text-[16px] leading-8 text-[#d9d3e8]">
+            <p className="mt-4 text-[15px] leading-7 text-[#d9d3e8] sm:text-[16px] sm:leading-8">
               {post.objective}
             </p>
           </div>
-          <div className="w-full max-w-[260px]">
+          <div className="w-full md:max-w-[260px]">
             <StatusSelect
               value={currentStatus}
               onChange={(value) => setPublicationStatus(post.id, value)}
@@ -97,7 +107,7 @@ export function ContentDetailView({
           </div>
         </div>
 
-        <div className="mt-6 grid min-w-0 gap-4 xl:grid-cols-2">
+        <div className="mt-6 grid min-w-0 gap-4 sm:grid-cols-2">
           <MetaCard label="Formato" value={getFormatLabel(post.format)} />
           <MetaCard label="Duração" value={post.duration} />
           <MetaCard label="Objetivo" value={post.objective} />
@@ -117,17 +127,19 @@ export function ContentDetailView({
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card className="p-4 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
             Gancho
           </h2>
           <CopyButton label="Copiar gancho" text={post.hook} />
         </div>
-        <p className="mt-4 text-[18px] leading-8 text-white">{post.hook}</p>
+        <p className="mt-4 text-[17px] leading-7 text-white sm:text-[18px] sm:leading-8">
+          {post.hook}
+        </p>
       </Card>
 
-      <Card className="p-6">
+      <Card className="p-4 sm:p-6">
         <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
           Roteiro por cena
         </h2>
@@ -135,7 +147,7 @@ export function ContentDetailView({
           {post.scenes.map((scene, index) => (
             <div
               key={scene.id}
-              className="rounded-[24px] border border-white/8 bg-white/[0.03] p-5"
+              className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4 sm:p-5"
             >
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-sm text-white">
@@ -149,7 +161,7 @@ export function ContentDetailView({
                 ) : null}
               </div>
 
-              <div className="mt-4 grid min-w-0 gap-4 xl:grid-cols-2">
+              <div className="mt-4 grid min-w-0 gap-4 lg:grid-cols-2">
                 {scene.speech ? (
                   <MetaCard label="Fala exata" value={scene.speech} />
                 ) : null}
@@ -177,15 +189,15 @@ export function ContentDetailView({
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card className="p-4 sm:p-6">
         <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
           Capturas do Framja
         </h2>
-        <div className="mt-5 grid min-w-0 gap-4 xl:grid-cols-2">
+        <div className="mt-5 grid min-w-0 gap-4 lg:grid-cols-2">
           {post.captures.map((capture) => (
             <div
               key={capture.id}
-              className="rounded-[24px] border border-white/8 bg-white/[0.03] p-5"
+              className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4 sm:p-5"
             >
               <h3 className="text-lg font-semibold text-white">{capture.screen}</h3>
               <p className="mt-3 text-[15px] leading-7 text-[#d9d3e8]">
@@ -211,7 +223,7 @@ export function ContentDetailView({
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card className="p-4 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
             Legenda
@@ -222,20 +234,20 @@ export function ContentDetailView({
           </div>
         </div>
 
-        <div className="mt-5 rounded-[24px] border border-white/8 bg-white/[0.03] p-5">
-          <p className="whitespace-pre-line text-[16px] leading-8 text-white">
+        <div className="mt-5 rounded-[24px] border border-white/8 bg-white/[0.03] p-4 sm:p-5">
+          <p className="whitespace-pre-line text-[15px] leading-7 text-white sm:text-[16px] sm:leading-8">
             {post.caption}
           </p>
         </div>
 
-        <div className="mt-5 grid min-w-0 gap-4 xl:grid-cols-2">
+        <div className="mt-5 grid min-w-0 gap-4 lg:grid-cols-2">
           <MetaCard label="CTA" value={post.cta} />
           <MetaCard label="Hashtags" value={post.hashtags.join(" ")} />
         </div>
       </Card>
 
-      <div className="grid min-w-0 gap-6 xl:grid-cols-2">
-        <Card className="p-6">
+      <div className="grid min-w-0 gap-6 lg:grid-cols-2">
+        <Card className="p-4 sm:p-6">
           <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
             Checklist
           </h2>
@@ -251,7 +263,7 @@ export function ContentDetailView({
           </div>
         </Card>
 
-        <Card className="p-6">
+        <Card className="p-4 sm:p-6">
           <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
             Observações
           </h2>
@@ -289,7 +301,7 @@ export function ContentDetailView({
         </Card>
       </div>
 
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <Link
           href="/conteudos"
           className={cn(buttonVariants({ variant: "secondary" }), "w-full sm:w-auto")}
@@ -299,6 +311,7 @@ export function ContentDetailView({
         <Button
           type="button"
           variant="primary"
+          className="w-full sm:w-auto"
           onClick={() => setPublicationStatus(post.id, "recorded")}
         >
           Marcar como gravado

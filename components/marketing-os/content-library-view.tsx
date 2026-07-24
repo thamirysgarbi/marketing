@@ -31,14 +31,14 @@ export function ContentLibraryView() {
   });
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5 sm:space-y-6">
       <PageHeading
         eyebrow="Biblioteca operacional"
         title="Todos os 14 conteúdos em uma fila legível."
         description="Aqui o time encontra título, gancho, funcionalidade, tempo, status e acesso rápido ao roteiro completo."
       />
 
-      <Card className="p-5">
+      <Card className="p-4 sm:p-5">
         <label className="relative block">
           <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#7f7596]" />
           <Input
@@ -55,21 +55,21 @@ export function ContentLibraryView() {
           const currentStatus = getMergedStatus(post, publicationStatuses);
 
           return (
-            <Card key={post.id} className="p-5 md:p-6">
-              <div className="flex flex-wrap items-start justify-between gap-4">
+            <Card key={post.id} className="p-4 sm:p-5 md:p-6">
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap gap-2">
                     <PublicationStatusPill status={currentStatus} />
                     <DifficultyPill difficulty={post.difficulty} />
                   </div>
-                  <h2 className="mt-4 text-[24px] font-semibold tracking-[-0.05em] text-white">
+                  <h2 className="mt-4 text-[22px] font-semibold tracking-[-0.05em] text-white sm:text-[24px]">
                     {post.title}
                   </h2>
-                  <p className="mt-4 text-[16px] leading-8 text-[#d9d3e8]">
+                  <p className="mt-4 text-[15px] leading-7 text-[#d9d3e8] sm:text-[16px] sm:leading-8">
                     {post.summary}
                   </p>
                 </div>
-                <div className="min-w-[160px]">
+                <div className="w-full sm:min-w-[180px] sm:max-w-[220px]">
                   <StatusSelect
                     value={currentStatus}
                     compact
@@ -78,7 +78,7 @@ export function ContentLibraryView() {
                 </div>
               </div>
 
-              <div className="mt-6 grid min-w-0 gap-4 xl:grid-cols-2">
+              <div className="mt-6 grid min-w-0 gap-4 lg:grid-cols-2">
                 <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
                   <p className="text-sm text-[#9f95b7]">Resumo rápido</p>
                   <p className="mt-2 text-[15px] leading-7 text-white">
@@ -100,10 +100,10 @@ export function ContentLibraryView() {
                 </div>
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-3">
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link
                   href={`/conteudos/${post.slug}`}
-                  className="inline-flex h-11 items-center justify-center rounded-2xl border border-[#8f57f5]/30 bg-[#8f57f5]/14 px-4 text-[15px] font-medium text-white"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-2xl border border-[#8f57f5]/30 bg-[#8f57f5]/14 px-4 text-[15px] font-medium text-white sm:w-auto"
                 >
                   Abrir roteiro
                 </Link>

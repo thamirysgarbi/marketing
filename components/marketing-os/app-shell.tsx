@@ -51,7 +51,7 @@ function AppShellFrame({
                 aria-label="Fechar menu"
               />
               <motion.aside
-                className="fixed inset-y-0 left-0 z-50 w-[240px] border-r border-white/8 bg-[#0b0b10] min-[900px]:hidden"
+                className="fixed inset-y-0 left-0 z-50 w-[min(86vw,320px)] border-r border-white/8 bg-[#0b0b10] min-[900px]:hidden"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -20, opacity: 0 }}
@@ -70,7 +70,7 @@ function AppShellFrame({
         <div className="flex min-w-0 flex-1 flex-col">
           <Topbar currentDate={getTodayIsoDate()} onMenuClick={toggleDrawer} />
           <main className="min-w-0 flex-1">
-            <div className="mx-auto w-full max-w-[1400px] px-4 py-6 sm:px-6 xl:px-8">
+            <div className="mx-auto w-full max-w-[1400px] px-3 py-4 sm:px-6 sm:py-6 xl:px-8">
               {children}
             </div>
           </main>
