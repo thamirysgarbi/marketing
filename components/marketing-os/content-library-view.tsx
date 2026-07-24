@@ -34,7 +34,7 @@ export function ContentLibraryView() {
     <div className="space-y-5 sm:space-y-6">
       <PageHeading
         eyebrow="Biblioteca operacional"
-        title="Todos os 14 conteúdos em uma fila legível."
+        title={`${posts.length} conteúdos em uma fila legível.`}
         description="Aqui o time encontra título, gancho, funcionalidade, tempo, status e acesso rápido ao roteiro completo."
       />
 

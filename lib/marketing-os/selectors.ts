@@ -198,18 +198,20 @@ export function getTodayQueue(
 }
 
 export function getWeekGroups() {
-  return [
-    {
-      id: "week-1",
-      label: "Semana 1",
-      posts: posts.slice(0, 7)
-    },
-    {
-      id: "week-2",
-      label: "Semana 2",
-      posts: posts.slice(7, 14)
-    }
-  ];
+  const groups = [];
+  const weekSize = 7;
+
+  for (let weekIndex = 0; weekIndex < posts.length; weekIndex += weekSize) {
+    const currentWeek = Math.floor(weekIndex / weekSize) + 1;
+
+    groups.push({
+      id: `week-${currentWeek}`,
+      label: `Semana ${currentWeek}`,
+      posts: posts.slice(weekIndex, weekIndex + weekSize)
+    });
+  }
+
+  return groups;
 }
 
 export function getFeatureById(featureId?: string) {
@@ -238,8 +240,12 @@ export function getMetrics(
   deferredUntil: Partial<Record<string, string>>
 ) {
   const today = getTodayIsoDate();
-  const currentWeekIndex = getCurrentDayNumber() <= 7 ? 0 : 1;
-  const weekPosts = getWeekGroups()[currentWeekIndex].posts;
+  const weekGroups = getWeekGroups();
+  const currentWeekIndex = Math.min(
+    Math.floor((getCurrentDayNumber() - 1) / 7),
+    Math.max(weekGroups.length - 1, 0)
+  );
+  const weekPosts = weekGroups[currentWeekIndex]?.posts ?? [];
   const publishedCount = posts.filter(
     (post) => getMergedStatus(post, statusOverrides) === "published"
   ).length;

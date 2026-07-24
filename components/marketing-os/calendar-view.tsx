@@ -65,13 +65,14 @@ export function CalendarView() {
   const [activeFilter, setActiveFilter] = useState<CalendarFilter>("all");
   const { publicationStatuses, setPublicationStatus } = useMarketingOs();
   const weeks = getWeekGroups();
+  const totalPosts = weeks.reduce((total, week) => total + week.posts.length, 0);
 
   return (
     <div className="space-y-5 sm:space-y-6">
       <PageHeading
         eyebrow="Calendário editorial"
-        title="14 dias de produção, em sequência clara."
-        description="Em vez de um calendário mensal apertado, aqui a leitura fica em duas semanas operacionais com status editável."
+        title={`${totalPosts} conteúdos em sequência clara.`}
+        description="Em vez de um calendário mensal apertado, aqui a leitura fica em blocos semanais operacionais com status editável."
       />
 
       <div className="-mx-3 overflow-x-auto px-3 pb-1 sm:mx-0 sm:px-0">

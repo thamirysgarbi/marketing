@@ -40,6 +40,26 @@ export const features: FramjaFeature[] = [
     icon: "ReceiptText"
   },
   {
+    id: "clientes",
+    name: "Clientes",
+    description:
+      "Cadastro completo que reúne dados da cliente, anamnese, agendamentos, comandas, pacotes e pendências financeiras em um só lugar.",
+    positioning:
+      "Transforma cadastro em memória de atendimento, recorrência e contexto comercial para a operação do salão.",
+    status: "available",
+    icon: "Users"
+  },
+  {
+    id: "link-agendamento",
+    name: "Link Agendamento",
+    description:
+      "Página pública de agendamento com identidade visual, regras comerciais e informações institucionais do negócio.",
+    positioning:
+      "Reduz atrito antes do agendamento e transforma o link em vitrine digital com mais clareza para a cliente.",
+    status: "available",
+    icon: "Globe"
+  },
+  {
     id: "aplicativo-framja",
     name: "Aplicativo Framja",
     description:

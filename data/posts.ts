@@ -1564,5 +1564,269 @@ export const posts: MarketingPost[] = [
       "Encerrar o ciclo deixando claro que o produto segue em construção.",
       "Não transformar o manifesto em promessa exagerada."
     ]
+  },
+  {
+    id: "content-15",
+    slug: "cadastro-de-cliente-nao-e-ficha-e-memoria-de-atendimento",
+    day: 15,
+    title: "Cadastro de cliente não é ficha. É memória de atendimento.",
+    format: "carousel",
+    objective:
+      "Reposicionar o cadastro de clientes como ferramenta de operação, personalização e recorrência.",
+    audience:
+      "Donos, recepcionistas e gestores de negócios de beleza que ainda usam cadastro só como lista de contato.",
+    summary:
+      "Carrossel para mostrar que um bom cadastro ajuda a lembrar histórico, vender melhor e atender com mais contexto.",
+    categoryId: "clareza",
+    featureId: "clientes",
+    publicationStatus: "planned",
+    duration: "7 slides",
+    difficulty: "medium",
+    productionTime: 40,
+    responsible: ["Pessoa que monta carrossel"],
+    hook:
+      "Se o cadastro da cliente serve só para guardar telefone, você está perdendo dinheiro e contexto.",
+    scenes: [
+      {
+        id: "slide-01",
+        title: "Slide 1",
+        onScreenText:
+          "Se o cadastro da cliente serve só para guardar telefone, você está perdendo dinheiro e contexto."
+      },
+      {
+        id: "slide-02",
+        title: "Slide 2",
+        onScreenText:
+          "Cadastro raso faz o time perguntar tudo de novo e atender sem memória."
+      },
+      {
+        id: "slide-03",
+        title: "Slide 3",
+        onScreenText:
+          "Quando dados, agendamentos e comandas ficam juntos, o atendimento muda."
+      },
+      {
+        id: "slide-04",
+        title: "Slide 4",
+        onScreenText:
+          "Anamnese, pacotes, créditos e dívidas deixam de depender da memória da equipe."
+      },
+      {
+        id: "slide-05",
+        title: "Slide 5",
+        onScreenText:
+          "Isso ajuda a personalizar, vender com mais contexto e reduzir ruído na operação."
+      },
+      {
+        id: "slide-06",
+        title: "Slide 6",
+        onScreenText:
+          "No Framja, cliente não é só contato. É histórico, relacionamento e operação."
+      },
+      {
+        id: "slide-07",
+        title: "Slide 7",
+        onScreenText:
+          "Cadastro bom faz a cliente se sentir lembrada, não recomeçada."
+      }
+    ],
+    captures: [
+      {
+        id: "capture-01",
+        screen: "Lista de clientes",
+        instruction:
+          "Mostrar a busca por nome ou telefone, os indicadores da lista e a sensação de base organizada.",
+        hideSensitiveData: true,
+        shouldAppear: [
+          "Busca por nome ou telefone",
+          "Indicadores de total de clientes",
+          "Lista limpa com nomes fictícios"
+        ],
+        shouldHide: [
+          "Telefones reais",
+          "Dados sensíveis",
+          "Observações internas de clientes reais"
+        ],
+        mockData: [
+          "Clientes fictícios",
+          "Base demo com aniversariantes e inativos de exemplo"
+        ],
+        framing: "Recorte estático ou tela em landscape para virar peça gráfica."
+      },
+      {
+        id: "capture-02",
+        screen: "Perfil da cliente",
+        instruction:
+          "Capturar as abas do cadastro para mostrar profundidade sem poluir visualmente o carrossel.",
+        hideSensitiveData: true,
+        shouldAppear: [
+          "Abas como dados, anamnese, agendamentos, comandas e pacotes",
+          "Estrutura do cadastro",
+          "Clareza visual entre as áreas"
+        ],
+        shouldHide: [
+          "Dados reais de cliente",
+          "Históricos pessoais",
+          "Valores sensíveis"
+        ],
+        mockData: [
+          "Perfil fictício",
+          "Informações neutras e consistentes"
+        ],
+        framing: "Landscape com zoom leve nas abas e blocos principais."
+      }
+    ],
+    materials: [
+      "Template de carrossel",
+      "Capturas limpas da lista de clientes e do perfil da cliente",
+      "Conta de demonstração organizada",
+      "Texto final dos sete slides"
+    ],
+    caption:
+      "Cadastro de cliente não deveria ser só uma ficha de contato.\n\nQuando histórico, agendamentos, comandas, anamnese, pacotes e pendências ficam espalhados, o atendimento perde contexto e a operação vira memória improvisada.\n\nNo Framja, o cadastro da cliente ajuda o negócio a lembrar melhor, atender com mais clareza e vender com mais contexto.\n\nPorque cliente não é só contato. É relacionamento em operação.",
+    cta: "Veja como o Framja transforma cadastro em operação.",
+    hashtags: [
+      ...baseHashtags,
+      "#CadastroDeClientes",
+      "#Recorrência",
+      "#ExperiênciaDaCliente"
+    ],
+    checklist: defaultChecklist,
+    notes: [
+      "Esse carrossel funciona melhor com bastante respiro visual e um print limpo por bloco.",
+      "Evitar telas muito carregadas; priorizar a ideia de profundidade do cadastro."
+    ]
+  },
+  {
+    id: "content-16",
+    slug: "seu-link-de-agendamento-nao-deveria-ser-so-um-link",
+    day: 16,
+    title: "Seu link de agendamento não deveria ser só um link",
+    format: "carousel",
+    objective:
+      "Mostrar o Link Agendamento como vitrine digital que reduz perguntas, transmite confiança e ajuda a cliente a concluir o agendamento.",
+    audience:
+      "Negócios de beleza que ainda dependem do WhatsApp para explicar quase tudo antes do agendamento.",
+    summary:
+      "Carrossel para mostrar que a página de agendamento também vende contexto, marca e confiança antes da conversa começar.",
+    categoryId: "evolucao",
+    featureId: "link-agendamento",
+    publicationStatus: "planned",
+    duration: "7 slides",
+    difficulty: "medium",
+    productionTime: 35,
+    responsible: ["Pessoa que monta carrossel"],
+    hook:
+      "Quando a cliente precisa chamar no WhatsApp para entender tudo, o link ainda não está fazendo o trabalho dele.",
+    scenes: [
+      {
+        id: "slide-01",
+        title: "Slide 1",
+        onScreenText:
+          "Quando a cliente precisa chamar no WhatsApp para entender tudo, o link ainda não está fazendo o trabalho dele."
+      },
+      {
+        id: "slide-02",
+        title: "Slide 2",
+        onScreenText:
+          "Um bom link de agendamento não mostra só horário. Ele antecipa contexto."
+      },
+      {
+        id: "slide-03",
+        title: "Slide 3",
+        onScreenText:
+          "Marca, fotos, endereço, comodidades e formas de pagamento também ajudam a cliente a decidir."
+      },
+      {
+        id: "slide-04",
+        title: "Slide 4",
+        onScreenText:
+          "Regras claras de sinal, antecedência e cancelamento reduzem atrito antes da conversa começar."
+      },
+      {
+        id: "slide-05",
+        title: "Slide 5",
+        onScreenText:
+          "Menos dúvida significa menos mensagem repetida e mais decisão com confiança."
+      },
+      {
+        id: "slide-06",
+        title: "Slide 6",
+        onScreenText:
+          "No Framja, o link de agendamento conecta vitrine, regra comercial e operação."
+      },
+      {
+        id: "slide-07",
+        title: "Slide 7",
+        onScreenText:
+          "Agendar fica mais simples quando a cliente já entendeu o contexto antes de clicar."
+      }
+    ],
+    captures: [
+      {
+        id: "capture-01",
+        screen: "Configuração do Link Agendamento",
+        instruction:
+          "Mostrar a área de personalização visual e de dados institucionais para reforçar a ideia de vitrine digital.",
+        hideSensitiveData: true,
+        shouldAppear: [
+          "Tema, logo ou fotos",
+          "Campos de contato e redes sociais",
+          "Estrutura visual da configuração"
+        ],
+        shouldHide: [
+          "Telefones reais",
+          "Endereços reais",
+          "Links pessoais"
+        ],
+        mockData: [
+          "Marca fictícia ou conta demo",
+          "Contato e endereço neutros"
+        ],
+        framing: "Landscape com foco nos blocos mais visuais da configuração."
+      },
+      {
+        id: "capture-02",
+        screen: "Página pública de agendamento",
+        instruction:
+          "Usar recorte da página pública para mostrar que a experiência já comunica antes do agendamento começar.",
+        hideSensitiveData: true,
+        shouldAppear: [
+          "Visual da página pública",
+          "Serviços ou informações gerais",
+          "Blocos de confiança e contexto"
+        ],
+        shouldHide: [
+          "Dados reais de clientes",
+          "Informações privadas",
+          "Elementos sem confirmação visual"
+        ],
+        mockData: [
+          "Serviços fictícios",
+          "Dados de demonstração organizados"
+        ],
+        framing: "Recorte estático com leitura vertical ou landscape, conforme a arte final pedir."
+      }
+    ],
+    materials: [
+      "Template de carrossel",
+      "Captura da configuração do Link Agendamento",
+      "Captura da página pública de agendamento",
+      "Conta demo com identidade visual organizada"
+    ],
+    caption:
+      "Seu link de agendamento não deveria ser só um atalho para marcar horário.\n\nEle também precisa comunicar marca, reduzir dúvida, mostrar contexto e deixar claras as regras antes da cliente chamar no WhatsApp.\n\nNo Framja, o Link Agendamento aproxima vitrine e operação para a cliente entender melhor antes de decidir.\n\nPorque menos atrito antes do clique também é experiência.",
+    cta: "Abra seu Link Agendamento e veja o que ainda falta comunicar.",
+    hashtags: [
+      ...baseHashtags,
+      "#AgendamentoOnline",
+      "#ExperiênciaDaCliente",
+      "#LinkDeAgendamento"
+    ],
+    checklist: defaultChecklist,
+    notes: [
+      "Carrossel ideal para usar prints com bastante margem e texto curto por slide.",
+      "Evitar parecer tutorial técnico; o foco é percepção de valor e clareza para a cliente."
+    ]
   }
 ];
