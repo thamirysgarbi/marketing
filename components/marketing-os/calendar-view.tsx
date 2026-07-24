@@ -1,0 +1,149 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { PageHeading } from "@/components/marketing-os/page-heading";
+import { useMarketingOs } from "@/components/marketing-os/provider";
+import { PublicationStatusPill, ProductStatusPill } from "@/components/marketing-os/status-pill";
+import { StatusSelect } from "@/components/marketing-os/status-select";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { formatLabels } from "@/data/statuses";
+import { cn } from "@/lib/cn";
+import {
+  formatShortDate,
+  getDateFromDay,
+  getFeatureById,
+  getFeatureLabel,
+  getMergedStatus,
+  getWeekGroups
+} from "@/lib/marketing-os/selectors";
+import type { MarketingPost } from "@/lib/marketing-os/types";
+
+type CalendarFilter =
+  | "all"
+  | "reels"
+  | "carousel"
+  | "stories"
+  | "behind-the-scenes"
+  | "future";
+
+const filters: Array<{ id: CalendarFilter; label: string }> = [
+  { id: "all", label: "Todos" },
+  { id: "reels", label: "Reels" },
+  { id: "carousel", label: "Carrossel" },
+  { id: "stories", label: "Stories" },
+  { id: "behind-the-scenes", label: "Bastidores" },
+  { id: "future", label: "Conteúdo futuro" }
+];
+
+function matchesFilter(post: MarketingPost, filter: CalendarFilter) {
+  if (filter === "all") {
+    return true;
+  }
+
+  if (filter === "future") {
+    return post.productStatus === "in-development" || post.productStatus === "future";
+  }
+
+  return post.format === filter;
+}
+
+export function CalendarView() {
+  const [activeFilter, setActiveFilter] = useState<CalendarFilter>("all");
+  const { publicationStatuses, setPublicationStatus } = useMarketingOs();
+  const weeks = getWeekGroups();
+
+  return (
+    <div className="space-y-6">
+      <PageHeading
+        eyebrow="Calendário editorial"
+        title="14 dias de produção, em sequência clara."
+        description="Em vez de um calendário mensal apertado, aqui a leitura fica em duas semanas operacionais com status editável."
+      />
+
+      <div className="flex flex-wrap gap-2">
+        {filters.map((filter) => (
+          <Button
+            key={filter.id}
+            type="button"
+            variant={activeFilter === filter.id ? "primary" : "secondary"}
+            size="sm"
+            onClick={() => setActiveFilter(filter.id)}
+          >
+            {filter.label}
+          </Button>
+        ))}
+      </div>
+
+      <div className="grid min-w-0 gap-6 xl:grid-cols-2">
+        {weeks.map((week) => (
+          <Card key={week.id} className="p-5 md:p-6">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
+                  {week.label}
+                </h2>
+                <p className="mt-2 text-[15px] leading-7 text-[#b4acc5]">
+                  {week.posts
+                    .map((post) => formatShortDate(getDateFromDay(post.day)))
+                    .join(" • ")}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 space-y-4">
+              {week.posts.filter((post) => matchesFilter(post, activeFilter)).map((post) => {
+                const currentStatus = getMergedStatus(post, publicationStatuses);
+                const feature = getFeatureById(post.featureId);
+
+                return (
+                  <div
+                    key={post.id}
+                    className="min-w-0 rounded-[26px] border border-white/8 bg-white/[0.03] p-4"
+                  >
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm text-[#9f95b7]">
+                          Dia {post.day} • {formatShortDate(getDateFromDay(post.day))}
+                        </p>
+                        <h3 className="mt-2 text-[20px] font-semibold tracking-[-0.04em] text-white">
+                          {post.title}
+                        </h3>
+                        <p className="mt-3 text-[15px] leading-7 text-[#d9d3e8]">
+                          {getFeatureLabel(post)} • {formatLabels[post.format]} • {post.productionTime} min
+                        </p>
+                        <p className="mt-2 text-[15px] leading-7 text-[#b4acc5]">
+                          Responsável: {post.responsible.join(", ")}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        <PublicationStatusPill status={currentStatus} />
+                        {feature ? <ProductStatusPill status={feature.status} /> : null}
+                      </div>
+                    </div>
+
+                    <div className="mt-4 grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_160px]">
+                      <StatusSelect
+                        value={currentStatus}
+                        compact
+                        onChange={(value) => setPublicationStatus(post.id, value)}
+                      />
+                      <Link
+                        href={`/conteudos/${post.slug}`}
+                        className={cn(buttonVariants({ variant: "secondary" }), "w-full")}
+                      >
+                        Abrir
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
