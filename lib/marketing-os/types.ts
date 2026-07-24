@@ -69,6 +69,41 @@ export interface FramjaSystemFunctionality {
   sections?: FramjaFunctionalitySection[];
 }
 
+export type FramjaRoadmapItemKind =
+  | "feature"
+  | "improvement"
+  | "bugfix"
+  | "exclusive";
+
+export type FramjaRoadmapReleaseStatus = "next" | "planned";
+
+export interface FramjaRoadmapItem {
+  id: string;
+  title: string;
+  summary: string;
+  kind: FramjaRoadmapItemKind;
+  surfaces: string[];
+  details: string[];
+  note?: string;
+}
+
+export interface FramjaRoadmapSection {
+  id: string;
+  title: string;
+  description: string;
+  items: FramjaRoadmapItem[];
+}
+
+export interface FramjaRoadmapRelease {
+  id: string;
+  version: string;
+  title: string;
+  summary: string;
+  status: FramjaRoadmapReleaseStatus;
+  highlights: string[];
+  sections: FramjaRoadmapSection[];
+}
+
 export interface MarketingScene {
   id: string;
   title?: string;

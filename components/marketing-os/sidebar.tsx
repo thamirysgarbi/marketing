@@ -5,19 +5,9 @@ import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { BrandMark } from "@/components/marketing-os/brand-mark";
 import { Button } from "@/components/ui/button";
+import { appNavigation } from "@/data/marketing-os/navigation";
 import { cn } from "@/lib/cn";
-import { MarketingIcon, type IconKey } from "@/lib/marketing-os/icons";
-
-const navigation: Array<{
-  label: string;
-  href: string;
-  icon: IconKey;
-}> = [
-  { label: "Hoje", href: "/", icon: "LayoutDashboard" },
-  { label: "Calendário", href: "/calendario", icon: "CalendarDays" },
-  { label: "Conteúdos", href: "/conteudos", icon: "Library" },
-  { label: "Funcionalidades", href: "/funcionalidades", icon: "Blocks" }
-];
+import { MarketingIcon } from "@/lib/marketing-os/icons";
 
 export function Sidebar({
   collapsed,
@@ -56,7 +46,7 @@ export function Sidebar({
       </div>
 
       <nav className="space-y-2">
-        {navigation.map((item) => {
+        {appNavigation.map((item) => {
           const active =
             item.href === "/"
               ? pathname === "/"
@@ -100,7 +90,8 @@ export function Sidebar({
         <div className="mt-auto rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
           <p className="text-sm font-medium text-white">Foco da ferramenta</p>
           <p className="mt-2 text-sm leading-6 text-[#9f95b7]">
-            Abrir, entender o conteúdo do dia e começar a gravar sem perder tempo pensando na estrutura.
+            Abrir, entender o conteúdo do dia e enxergar a evolução do produto
+            sem perder tempo procurando contexto.
           </p>
         </div>
       ) : null}
