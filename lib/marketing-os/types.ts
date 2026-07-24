@@ -33,6 +33,24 @@ export interface FramjaFeature {
   steps?: string[];
 }
 
+export interface FramjaFunctionalityGroup {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export interface FramjaSystemFunctionality {
+  id: string;
+  groupId: string;
+  name: string;
+  menuPath: string;
+  route: string;
+  description: string;
+  status: ProductStatus;
+  icon: IconKey;
+  highlights: string[];
+}
+
 export interface MarketingScene {
   id: string;
   title?: string;

@@ -1,6 +1,8 @@
 import {
   ArrowRight,
+  Bell,
   Blocks,
+  Boxes,
   CalendarDays,
   CalendarRange,
   CheckCheck,
@@ -8,19 +10,28 @@ import {
   Clock3,
   CreditCard,
   Eye,
+  Globe,
   LayoutDashboard,
   Library,
   ListChecks,
+  Package,
   ReceiptText,
+  Scissors,
   Smartphone,
   Sparkles,
+  Settings2,
+  UserRound,
+  Users,
+  Wallet,
   type LucideIcon
 } from "lucide-react";
 import { createElement } from "react";
 
 export const iconMap = {
   ArrowRight,
+  Bell,
   Blocks,
+  Boxes,
   CalendarDays,
   CalendarRange,
   CheckCheck,
@@ -28,12 +39,19 @@ export const iconMap = {
   Clock3,
   CreditCard,
   Eye,
+  Globe,
   LayoutDashboard,
   Library,
   ListChecks,
+  Package,
   ReceiptText,
+  Scissors,
   Smartphone,
-  Sparkles
+  Sparkles,
+  Settings2,
+  UserRound,
+  Users,
+  Wallet
 } as const satisfies Record<string, LucideIcon>;
 
 export type IconKey = keyof typeof iconMap;
