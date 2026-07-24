@@ -60,6 +60,26 @@ export const features: FramjaFeature[] = [
     icon: "Globe"
   },
   {
+    id: "lembretes-automaticos",
+    name: "Lembretes Automáticos",
+    description:
+      "Painel que registra envios automáticos, créditos e histórico de mensagens para reduzir faltas e esquecimento na agenda.",
+    positioning:
+      "Transforma confirmação manual em rotina mais previsível, com comunicação rastreável e menos retrabalho para a equipe.",
+    status: "available",
+    icon: "Bell"
+  },
+  {
+    id: "caixa",
+    name: "Caixa",
+    description:
+      "Fluxo operacional que conecta comanda, pagamento, pacotes e leitura do resultado diário do negócio.",
+    positioning:
+      "Ajuda a operação a vender, receber e fechar o dia com mais clareza, sem separar atendimento e financeiro em processos soltos.",
+    status: "available",
+    icon: "CreditCard"
+  },
+  {
     id: "aplicativo-framja",
     name: "Aplicativo Framja",
     description:

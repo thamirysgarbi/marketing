@@ -1828,5 +1828,265 @@ export const posts: MarketingPost[] = [
       "Carrossel ideal para usar prints com bastante margem e texto curto por slide.",
       "Evitar parecer tutorial técnico; o foco é percepção de valor e clareza para a cliente."
     ]
+  },
+  {
+    id: "content-17",
+    slug: "quanto-custa-um-esquecimento-na-sua-agenda",
+    day: 17,
+    title: "Quanto custa um esquecimento na sua agenda?",
+    format: "reels",
+    objective:
+      "Mostrar o valor operacional dos Lembretes Automáticos sem transformar a conversa em explicação técnica.",
+    audience:
+      "Gestores e recepcionistas de negócios de beleza que ainda confirmam atendimento no braço e lidam com faltas ou esquecimentos.",
+    summary:
+      "Reels para mostrar que lembrar a cliente no momento certo protege agenda, reduz retrabalho e dá previsibilidade para a rotina.",
+    categoryId: "evolucao",
+    featureId: "lembretes-automaticos",
+    publicationStatus: "planned",
+    productStatus: "available",
+    duration: "25 a 35 segundos",
+    difficulty: "medium",
+    productionTime: 30,
+    responsible: ["Narração do time"],
+    hook: "Às vezes, o prejuízo da agenda não vem de um buraco grande. Vem de um esquecimento pequeno.",
+    scenes: [
+      {
+        id: "scene-01",
+        title: "Cena 1",
+        speech:
+          "Às vezes, o prejuízo da agenda não vem de um buraco grande. Vem de um esquecimento pequeno.",
+        onScreenText: "Um esquecimento também custa.",
+        visual: "Tela de agenda com horários organizados.",
+        recordingDirection:
+          "Abrir a agenda de demonstração com leitura limpa e poucos elementos."
+      },
+      {
+        id: "scene-02",
+        title: "Cena 2",
+        speech:
+          "Quando a confirmação depende só da memória da equipe, a operação fica mais frágil do que parece.",
+        onScreenText: "Confirmação manual gera ruído.",
+        visual: "Troca rápida entre agenda e rotina de atendimento.",
+        editingDirection:
+          "Cortes curtos para passar sensação de rotina corrida."
+      },
+      {
+        id: "scene-03",
+        title: "Cena 3",
+        speech:
+          "Foi por isso que o Framja criou uma área de Lembretes Automáticos com histórico e rastreio dos envios.",
+        onScreenText: "Lembretes Automáticos.",
+        visual: "Abrir o módulo de lembretes.",
+        editingDirection:
+          "Dar uma pausa breve no título do módulo."
+      },
+      {
+        id: "scene-04",
+        title: "Cena 4",
+        speech:
+          "Não é só sobre mandar mensagem. É sobre saber o que foi enviado, quando foi enviado e manter a agenda mais previsível.",
+        onScreenText: "Menos esquecimento. Mais previsibilidade.",
+        visual: "Percorrer log de mensagens e status.",
+        editingDirection:
+          "Encerrar com leitura mais calma para reforçar clareza."
+      }
+    ],
+    captures: [
+      {
+        id: "capture-01",
+        screen: "Agenda",
+        instruction:
+          "Usar a agenda apenas como contexto do problema, sem aprofundar em detalhes.",
+        hideSensitiveData: true,
+        shouldAppear: [
+          "Horários ocupados",
+          "Rotina visual de um dia de atendimento",
+          "Leitura rápida da agenda"
+        ],
+        shouldHide: [
+          "Nomes reais",
+          "Telefones reais",
+          "Observações internas"
+        ],
+        mockData: [
+          "Agenda demo com clientes fictícios",
+          "Serviços genéricos"
+        ],
+        framing: "Landscape com scroll mínimo."
+      },
+      {
+        id: "capture-02",
+        screen: "Lembretes Automáticos",
+        instruction:
+          "Mostrar créditos, histórico de mensagens e status dos envios para reforçar rastreabilidade.",
+        hideSensitiveData: true,
+        shouldAppear: [
+          "Saldo ou total de créditos",
+          "Histórico de mensagens enviadas",
+          "Status dos envios"
+        ],
+        shouldHide: [
+          "WhatsApps reais",
+          "Mensagens pessoais",
+          "Dados de clientes reais"
+        ],
+        mockData: [
+          "Mensagens fictícias",
+          "Contatos de demonstração"
+        ],
+        framing: "Landscape com foco nos blocos mais legíveis."
+      }
+    ],
+    materials: [
+      "Conta de demonstração com agenda preenchida",
+      "Captura do módulo de Lembretes Automáticos",
+      "Texto de narração pronto",
+      "Ambiente silencioso para gravar voz"
+    ],
+    caption:
+      "Nem todo prejuízo da agenda vem de um cancelamento grande.\n\nMuitas vezes, ele começa em um esquecimento pequeno, em uma confirmação que ficou para depois ou em uma mensagem que dependia da memória da equipe.\n\nOs Lembretes Automáticos do Framja ajudam a reduzir esse ruído com histórico de envios, rastreio e mais previsibilidade para a rotina.\n\nPorque comunicação organizada também é operação.",
+    cta: "Abra o Framja e veja como seus lembretes estão sendo acompanhados hoje.",
+    hashtags: [
+      ...baseHashtags,
+      "#LembretesAutomáticos",
+      "#AgendaDeSalão",
+      "#Recepção"
+    ],
+    checklist: defaultChecklist,
+    notes: [
+      "O ritmo do vídeo deve parecer rotina real, não tutorial técnico.",
+      "Se o log de mensagens estiver visualmente poluído, usar recortes mais fechados."
+    ]
+  },
+  {
+    id: "content-18",
+    slug: "o-caixa-do-dia-nao-deveria-ser-um-chute-no-fim-do-expediente",
+    day: 18,
+    title: "O caixa do dia não deveria ser um chute no fim do expediente",
+    format: "reels",
+    objective:
+      "Apresentar o Caixa como ponto de encontro entre atendimento, venda e leitura financeira do dia.",
+    audience:
+      "Gestores e recepcionistas que ainda fecham o dia com informação espalhada entre agenda, comanda e pagamento.",
+    summary:
+      "Reels para mostrar que o caixa não serve só para cobrar: ele também organiza o fechamento e ajuda a entender o dia com mais clareza.",
+    categoryId: "financeiro",
+    featureId: "caixa",
+    publicationStatus: "planned",
+    productStatus: "available",
+    duration: "30 a 40 segundos",
+    difficulty: "medium",
+    productionTime: 35,
+    responsible: ["Narração do time"],
+    hook: "Se o fechamento do dia depende de memória, papel solto e conversa paralela, o problema não está no fim do expediente. Está no fluxo inteiro.",
+    scenes: [
+      {
+        id: "scene-01",
+        title: "Cena 1",
+        speech:
+          "Se o fechamento do dia depende de memória, papel solto e conversa paralela, o problema não está no fim do expediente. Está no fluxo inteiro.",
+        onScreenText: "Fechar o dia no chute custa caro.",
+        visual: "Recorte rápido de agenda, atendimento e caixa.",
+        recordingDirection:
+          "Montagem inicial com ritmo ágil para criar contraste."
+      },
+      {
+        id: "scene-02",
+        title: "Cena 2",
+        speech:
+          "Porque o caixa não começa quando o salão fecha. Ele começa quando atendimento, pagamento e comanda passam a conversar.",
+        onScreenText: "Caixa é fluxo, não só balcão.",
+        visual: "Abrir o módulo de caixa.",
+        editingDirection:
+          "Reduzir o ritmo para começar a leitura da tela."
+      },
+      {
+        id: "scene-03",
+        title: "Cena 3",
+        speech:
+          "No Framja, a mesma área conecta comanda, forma de pagamento, pacote e leitura do resultado diário.",
+        onScreenText: "Comanda • pagamento • pacote • resultado do dia",
+        visual: "Percorrer área de nova comanda e comandas do dia.",
+        editingDirection:
+          "Usar zoom leve nos blocos que mostram valores e estrutura."
+      },
+      {
+        id: "scene-04",
+        title: "Cena 4",
+        speech:
+          "Isso ajuda o negócio a vender, receber e fechar o dia com mais clareza, sem transformar o caixa em adivinhação.",
+        onScreenText: "Mais clareza no fechamento.",
+        visual: "Mostrar resumo do dia no caixa.",
+        editingDirection:
+          "Encerrar com um quadro mais limpo do resumo diário."
+      }
+    ],
+    captures: [
+      {
+        id: "capture-01",
+        screen: "Caixa",
+        instruction:
+          "Mostrar a abertura de comanda ou área principal do caixa como início do fluxo.",
+        hideSensitiveData: true,
+        shouldAppear: [
+          "Acesso ao caixa",
+          "Estrutura de nova comanda",
+          "Leitura clara do fluxo"
+        ],
+        shouldHide: [
+          "Dados reais de clientes",
+          "Valores sensíveis de operação real",
+          "Observações internas"
+        ],
+        mockData: [
+          "Cliente fictício",
+          "Pagamentos e comandas de demonstração"
+        ],
+        framing: "Landscape com foco em leitura e não em velocidade."
+      },
+      {
+        id: "capture-02",
+        screen: "Resumo do dia no Caixa",
+        instruction:
+          "Usar o bloco de resumo para reforçar a ideia de fechamento com clareza.",
+        hideSensitiveData: true,
+        shouldAppear: [
+          "Indicadores do dia",
+          "Resumo de lucro, faturamento ou ticket médio",
+          "Leitura visual organizada"
+        ],
+        shouldHide: [
+          "Valores reais",
+          "Identificadores de clientes",
+          "Dados financeiros sensíveis"
+        ],
+        mockData: [
+          "Indicadores fictícios consistentes",
+          "Movimento demo do dia"
+        ],
+        framing: "Landscape com pausa breve nos blocos principais."
+      }
+    ],
+    materials: [
+      "Conta de demonstração com caixa preenchido",
+      "Capturas da área de comanda e resumo do dia",
+      "Narração pronta",
+      "Roteiro aprovado pela equipe"
+    ],
+    caption:
+      "O caixa do dia não deveria ser um chute no fim do expediente.\n\nQuando atendimento, pagamento e comanda ficam espalhados, o fechamento vira reconciliação manual e a clareza some justamente na hora de entender o resultado.\n\nNo Framja, o Caixa ajuda a conectar venda, recebimento e leitura do dia em um mesmo fluxo.\n\nPorque cobrar é só uma parte. Entender o que aconteceu também faz parte do caixa.",
+    cta: "Abra o Caixa do Framja e veja se o seu fechamento está nascendo organizado.",
+    hashtags: [
+      ...baseHashtags,
+      "#CaixaDoDia",
+      "#FinanceiroDoSalão",
+      "#Comandas"
+    ],
+    checklist: defaultChecklist,
+    notes: [
+      "Evitar transformar o vídeo em passo a passo de cobrança.",
+      "O foco é percepção de organização e clareza financeira no dia a dia."
+    ]
   }
 ];

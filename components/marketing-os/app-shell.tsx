@@ -1,16 +1,26 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { LoginScreen } from "@/components/marketing-os/login-screen";
 import { Sidebar } from "@/components/marketing-os/sidebar";
 import { Topbar } from "@/components/marketing-os/topbar";
 import { MarketingOsProvider, useMarketingOs } from "@/components/marketing-os/provider";
 import { cn } from "@/lib/cn";
+import {
+  ACCESS_CHANGED_EVENT,
+  ACCESS_GRANTED_TOKEN,
+  ACCESS_STORAGE_KEY,
+  fixedAccessCredentials
+} from "@/lib/marketing-os/access";
 import { getTodayIsoDate } from "@/lib/marketing-os/selectors";
 
 function AppShellFrame({
-  children
+  children,
+  onLogout
 }: {
   children: React.ReactNode;
+  onLogout: () => void;
 }) {
   const {
     drawerOpen,
@@ -68,7 +78,11 @@ function AppShellFrame({
         </AnimatePresence>
 
         <div className="flex min-w-0 flex-1 flex-col">
-          <Topbar currentDate={getTodayIsoDate()} onMenuClick={toggleDrawer} />
+          <Topbar
+            currentDate={getTodayIsoDate()}
+            onMenuClick={toggleDrawer}
+            onLogout={onLogout}
+          />
           <main className="min-w-0 flex-1">
             <div className="mx-auto w-full max-w-[1400px] px-3 py-4 sm:px-6 sm:py-6 xl:px-8">
               {children}
@@ -80,14 +94,78 @@ function AppShellFrame({
   );
 }
 
+function readStoredAccess() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return window.localStorage.getItem(ACCESS_STORAGE_KEY) === ACCESS_GRANTED_TOKEN;
+}
+
+function subscribeToAccessChange(onStoreChange: () => void) {
+  if (typeof window === "undefined") {
+    return () => undefined;
+  }
+
+  const notify = () => onStoreChange();
+
+  window.addEventListener("storage", notify);
+  window.addEventListener(ACCESS_CHANGED_EVENT, notify);
+
+  return () => {
+    window.removeEventListener("storage", notify);
+    window.removeEventListener(ACCESS_CHANGED_EVENT, notify);
+  };
+}
+
 export function AppShell({
   children
 }: {
   children: React.ReactNode;
 }) {
+  const authenticated = useSyncExternalStore(
+    subscribeToAccessChange,
+    readStoredAccess,
+    () => false
+  );
+
+  const handleAuthenticate = ({
+    username,
+    password
+  }: {
+    username: string;
+    password: string;
+  }) => {
+    const granted =
+      username === fixedAccessCredentials.username &&
+      password === fixedAccessCredentials.password;
+
+    if (!granted) {
+      return false;
+    }
+
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(ACCESS_STORAGE_KEY, ACCESS_GRANTED_TOKEN);
+      window.dispatchEvent(new Event(ACCESS_CHANGED_EVENT));
+    }
+
+    return true;
+  };
+
+  const handleLogout = () => {
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem(ACCESS_STORAGE_KEY);
+      window.dispatchEvent(new Event(ACCESS_CHANGED_EVENT));
+    }
+  };
+
+  if (!authenticated) {
+    return <LoginScreen onAuthenticate={handleAuthenticate} />;
+  }
+
   return (
     <MarketingOsProvider>
-      <AppShellFrame>{children}</AppShellFrame>
+      <AppShellFrame onLogout={handleLogout}>{children}</AppShellFrame>
     </MarketingOsProvider>
   );
 }

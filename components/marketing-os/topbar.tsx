@@ -6,10 +6,12 @@ import { formatLongDate } from "@/lib/marketing-os/selectors";
 
 export function Topbar({
   currentDate,
-  onMenuClick
+  onMenuClick,
+  onLogout
 }: {
   currentDate: string;
   onMenuClick: () => void;
+  onLogout: () => void;
 }) {
   return (
     <div className="sticky top-0 z-30 border-b border-white/8 bg-[rgba(8,8,12,0.86)] backdrop-blur-xl">
@@ -31,6 +33,16 @@ export function Topbar({
             {formatLongDate(currentDate)}
           </p>
         </div>
+
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          className="shrink-0"
+          onClick={onLogout}
+        >
+          Sair
+        </Button>
       </div>
     </div>
   );
