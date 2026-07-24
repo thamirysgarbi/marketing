@@ -58,9 +58,8 @@ export function LoginScreen({
                 Entre para acessar o Framja Marketing OS.
               </h1>
               <p className="mt-5 max-w-xl text-[15px] leading-7 text-[#c7c0d9] sm:text-[17px] sm:leading-8">
-                O portal concentra planejamento, pauta, roadmap e execução da
-                operação editorial em um só lugar, com a mesma linguagem premium
-                do restante do produto.
+                Acesse o ambiente de trabalho e continue sua rotina com tudo
+                organizado em um único espaço.
               </p>
             </div>
 

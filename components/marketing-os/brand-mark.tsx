@@ -16,7 +16,7 @@ export function BrandMark({
           Framja Marketing OS
         </p>
         <p className="mt-1 text-sm text-[#9f95b7]">
-          Operação de conteúdo para duas pessoas.
+          Planejamento e execução de conteúdo em um só lugar.
         </p>
       </div>
     </div>
