@@ -49,6 +49,18 @@ function matchesFilter(post: MarketingPost, filter: CalendarFilter) {
   return post.format === filter;
 }
 
+function MetaChip({
+  children
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <span className="rounded-full border border-white/8 bg-white/[0.04] px-3 py-1 text-xs font-medium text-[#d9d3e8]">
+      {children}
+    </span>
+  );
+}
+
 export function CalendarView() {
   const [activeFilter, setActiveFilter] = useState<CalendarFilter>("all");
   const { publicationStatuses, setPublicationStatus } = useMarketingOs();
@@ -86,11 +98,13 @@ export function CalendarView() {
                 <h2 className="text-xl font-semibold tracking-[-0.04em] text-white">
                   {week.label}
                 </h2>
-                <p className="mt-2 text-[15px] leading-7 text-[#b4acc5]">
-                  {week.posts
-                    .map((post) => formatShortDate(getDateFromDay(post.day)))
-                    .join(" • ")}
-                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {week.posts.map((post) => (
+                    <MetaChip key={post.id}>
+                      {formatShortDate(getDateFromDay(post.day))}
+                    </MetaChip>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -112,10 +126,12 @@ export function CalendarView() {
                         <h3 className="mt-2 text-[20px] font-semibold tracking-[-0.04em] text-white">
                           {post.title}
                         </h3>
-                        <p className="mt-3 text-[15px] leading-7 text-[#d9d3e8]">
-                          {getFeatureLabel(post)} • {formatLabels[post.format]} • {post.productionTime} min
-                        </p>
-                        <p className="mt-2 text-[15px] leading-7 text-[#b4acc5]">
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          <MetaChip>{getFeatureLabel(post)}</MetaChip>
+                          <MetaChip>{formatLabels[post.format]}</MetaChip>
+                          <MetaChip>{post.productionTime} min</MetaChip>
+                        </div>
+                        <p className="mt-3 text-[14px] leading-6 text-[#b4acc5] sm:text-[15px] sm:leading-7">
                           Responsável: {post.responsible.join(", ")}
                         </p>
                       </div>
