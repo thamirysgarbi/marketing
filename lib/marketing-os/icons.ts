@@ -1,4 +1,5 @@
 import {
+  Archive,
   ArrowRight,
   Bell,
   Blocks,
@@ -28,6 +29,7 @@ import {
 import { createElement } from "react";
 
 export const iconMap = {
+  Archive,
   ArrowRight,
   Bell,
   Blocks,
