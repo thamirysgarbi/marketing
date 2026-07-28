@@ -65,7 +65,18 @@ export function CalendarView() {
   const [activeFilter, setActiveFilter] = useState<CalendarFilter>("all");
   const { publicationStatuses, setPublicationStatus } = useMarketingOs();
   const weeks = getWeekGroups();
-  const totalPosts = weeks.reduce((total, week) => total + week.posts.length, 0);
+  const activeWeeks = weeks
+    .map((week) => ({
+      ...week,
+      posts: week.posts.filter(
+        (post) => getMergedStatus(post, publicationStatuses) !== "published"
+      )
+    }))
+    .filter((week) => week.posts.length > 0);
+  const totalPosts = activeWeeks.reduce(
+    (total, week) => total + week.posts.length,
+    0
+  );
 
   return (
     <div className="space-y-5 sm:space-y-6">
@@ -92,7 +103,7 @@ export function CalendarView() {
       </div>
 
       <div className="grid min-w-0 gap-6 xl:grid-cols-2">
-        {weeks.map((week) => (
+        {activeWeeks.map((week) => (
           <Card key={week.id} className="p-4 sm:p-5 md:p-6">
             <div className="flex items-center justify-between gap-3">
               <div>
@@ -163,6 +174,24 @@ export function CalendarView() {
           </Card>
         ))}
       </div>
+
+      {totalPosts === 0 ? (
+        <Card className="p-6 text-center sm:p-8">
+          <h2 className="text-xl font-semibold text-white">
+            Todos os conteúdos foram publicados
+          </h2>
+          <p className="mt-3 text-[15px] leading-7 text-[#b4acc5]">
+            Os roteiros arquivados continuam disponíveis em Conteúdos já
+            publicados.
+          </p>
+          <Link
+            href="/conteudos-publicados"
+            className={cn(buttonVariants({ variant: "secondary" }), "mt-5")}
+          >
+            Abrir conteúdos publicados
+          </Link>
+        </Card>
+      ) : null}
     </div>
   );
 }
