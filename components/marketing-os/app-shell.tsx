@@ -81,6 +81,8 @@ function AppShellFrame({
           <Topbar
             currentDate={getTodayIsoDate()}
             onMenuClick={toggleDrawer}
+            onSidebarOpen={toggleSidebarCollapsed}
+            sidebarCollapsed={sidebarCollapsed}
             onLogout={onLogout}
           />
           <main className="min-w-0 flex-1">
