@@ -1,16 +1,20 @@
 "use client";
 
-import { LogOut, Menu } from "lucide-react";
+import { LogOut, Menu, PanelLeftOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatLongDate } from "@/lib/marketing-os/selectors";
 
 export function Topbar({
   currentDate,
   onMenuClick,
+  onSidebarOpen,
+  sidebarCollapsed,
   onLogout
 }: {
   currentDate: string;
   onMenuClick: () => void;
+  onSidebarOpen: () => void;
+  sidebarCollapsed: boolean;
   onLogout: () => void;
 }) {
   return (
@@ -26,6 +30,20 @@ export function Topbar({
         >
           <Menu className="h-4 w-4" />
         </Button>
+
+        {sidebarCollapsed ? (
+          <Button
+            type="button"
+            variant="secondary"
+            size="icon"
+            className="hidden min-[900px]:inline-flex"
+            onClick={onSidebarOpen}
+            aria-label="Abrir menu"
+            title="Abrir menu"
+          >
+            <PanelLeftOpen className="h-4 w-4" />
+          </Button>
+        ) : null}
 
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-medium text-white">Framja Marketing OS</p>
