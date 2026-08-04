@@ -3038,5 +3038,75 @@ export const posts: MarketingPost[] = [
     hashtags: [...baseHashtags, "#RotinaDeGestão", "#Dashboard", "#NegóciosDeBeleza"],
     checklist: defaultChecklist,
     notes: ["A duração de um minuto é uma proposta editorial de consulta rápida, não uma garantia cronometrada."]
+  },
+  {
+    id: "content-39",
+    slug: "seu-salao-fatura-mas-o-dinheiro-some",
+    day: 39,
+    title: "Seu salão fatura, mas o dinheiro some?",
+    format: "carousel",
+    objective: "Converter gestores de negócios de beleza para o teste gratuito do Framja por meio de uma dor financeira imediata e reconhecível.",
+    audience: "Donos de salões, clínicas de estética e negócios de beleza que possuem movimento, mas pouca clareza sobre o resultado real.",
+    summary: "Carrossel de campanha com cinco slides que confronta faturamento sem clareza e apresenta o Olho do Gato como solução de gestão.",
+    categoryId: "financeiro",
+    featureId: "olho-do-gato",
+    featureLabel: "Olho do Gato",
+    publicationStatus: "planned",
+    productStatus: "available",
+    duration: "5 slides",
+    difficulty: "medium",
+    productionTime: 45,
+    responsible: ["Social media", "Designer"],
+    hook: "Seu salão fatura, a agenda fica cheia... mas no fim do mês você ainda pergunta: onde foi parar o dinheiro?",
+    scenes: [
+      {
+        id: "scene-01",
+        speech: "Interrupção",
+        onScreenText: "SEU SALÃO FATURA.\nMAS O DINHEIRO SOME?",
+        visual: "Fundo escuro, número de faturamento em destaque e efeito de desaparecimento. Usar tipografia grande e contraste forte."
+      },
+      {
+        id: "scene-02",
+        speech: "Identificação",
+        onScreenText: "Agenda cheia não garante lucro.\n\nCustos, despesas e decisões no escuro podem consumir o resultado sem você perceber.",
+        visual: "Agenda lotada de um lado e resultado financeiro apertado do outro."
+      },
+      {
+        id: "scene-03",
+        speech: "Apresentação da solução",
+        onScreenText: "Abra o Olho do Gato.\n\nVeja receita, custos, despesas, lucro real e ticket médio em uma única visão.",
+        visual: "Captura limpa do dashboard com marcações nos principais indicadores."
+      },
+      {
+        id: "scene-04",
+        speech: "Transformação",
+        onScreenText: "Pare de administrar pela sensação.\n\nEntenda o que realmente dá resultado e decida com mais clareza.",
+        visual: "Transição do gestor confuso para uma leitura organizada do painel."
+      },
+      {
+        id: "scene-05",
+        speech: "Conversão",
+        onScreenText: "SEU NEGÓCIO MERECE MAIS DO QUE ACHISMO.\n\nTeste o Framja gratuitamente agora.\nToque no link e abra o Olho do Gato.",
+        visual: "Tela final com identidade Framja, botão visual de CTA e seta apontando para o link."
+      }
+    ],
+    captures: [
+      {
+        id: "capture-01",
+        screen: "Olho do Gato",
+        instruction: "Capturar o painel com filtro de período, receita bruta, custos, despesas, lucro real e ticket médio em uma conta demo.",
+        hideSensitiveData: true,
+        shouldAppear: ["Filtro de período", "Receita bruta", "Custos e despesas", "Lucro real", "Ticket médio"],
+        shouldHide: ["Dados reais", "Nomes de clientes", "Valores sensíveis"],
+        mockData: ["Operação fictícia com indicadores coerentes"],
+        framing: "Carrossel 4:5, com o painel ocupando a área central do terceiro slide."
+      }
+    ],
+    materials: ["Captura do Olho do Gato com dados demo", "Template 4:5 de campanha", "Botão visual para CTA", "Identidade do Framja"],
+    caption: "Você trabalha, vende, atende e vê o salão movimentado. Mas, quando o mês termina, ainda é difícil responder quanto realmente sobrou?\n\nMovimento não é sinônimo de lucro. Sem enxergar receita, custos, despesas e ticket médio juntos, decisões importantes acabam sendo tomadas pela sensação.\n\nO Olho do Gato, do Framja, reúne os principais indicadores da sua operação em uma visão clara para você entender o resultado além da agenda cheia.\n\nChega de administrar no escuro. Toque no link e comece agora seu teste gratuito do Framja.",
+    cta: "Toque no link e comece agora seu teste gratuito do Framja. Abra o Olho do Gato para o seu negócio.",
+    hashtags: [...baseHashtags, "#OlhoDoGato", "#LucroReal", "#GestãoDeSalão", "#SalãoDeBeleza", "#EmpreendedorismoNaBeleza"],
+    checklist: defaultChecklist,
+    notes: ["Usar a primeira frase também como texto principal do anúncio.", "Manter apenas uma ação no slide final: iniciar o teste gratuito.", "Não prometer aumento garantido de lucro ou faturamento."]
   }
 ];
