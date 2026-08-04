@@ -20,12 +20,16 @@ export function StatusSelect({
         onChange={(event) => onChange(event.target.value as PublicationStatus)}
         className={
           compact
-            ? "h-10 w-full rounded-xl border border-white/10 bg-white/[0.04] px-3 text-sm text-white outline-none"
-            : "h-11 w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 text-[15px] text-white outline-none"
+            ? "h-10 w-full rounded-xl border border-white/10 bg-[#17121f] px-3 text-sm text-[#f8f5ff] outline-none [color-scheme:dark] focus:border-[#8f57f5]/60"
+            : "h-11 w-full rounded-2xl border border-white/10 bg-[#17121f] px-4 text-[15px] text-[#f8f5ff] outline-none [color-scheme:dark] focus:border-[#8f57f5]/60"
         }
       >
         {publicationStatuses.map((status) => (
-          <option key={status.value} value={status.value}>
+          <option
+            key={status.value}
+            value={status.value}
+            className="bg-[#17121f] text-[#f8f5ff]"
+          >
             {status.label}
           </option>
         ))}
@@ -33,3 +37,4 @@ export function StatusSelect({
     </label>
   );
 }
+
