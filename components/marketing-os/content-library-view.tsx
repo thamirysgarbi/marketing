@@ -17,7 +17,10 @@ export function ContentLibraryView() {
   const [query, setQuery] = useState("");
   const { publicationStatuses, setPublicationStatus } = useMarketingOs();
   const normalizedQuery = query.trim().toLowerCase();
-  const filteredPosts = posts.filter((post) => {
+  const queuedPosts = posts.filter(
+    (post) => getMergedStatus(post, publicationStatuses) !== "published"
+  );
+  const filteredPosts = queuedPosts.filter((post) => {
     if (!normalizedQuery) {
       return true;
     }
@@ -34,8 +37,8 @@ export function ContentLibraryView() {
     <div className="space-y-5 sm:space-y-6">
       <PageHeading
         eyebrow="Biblioteca operacional"
-        title={`${posts.length} conteúdos em uma fila legível.`}
-        description="Aqui o time encontra título, gancho, funcionalidade, tempo, status e acesso rápido ao roteiro completo."
+        title={`${queuedPosts.length} conteúdos em uma fila legível.`}
+        description="Aqui ficam apenas os conteúdos que ainda estão em produção. Ao marcar um roteiro como Publicado, ele é movido para Conteúdos já publicados."
       />
 
       <Card className="p-4 sm:p-5">
@@ -113,6 +116,27 @@ export function ContentLibraryView() {
           );
         })}
       </div>
+
+      {filteredPosts.length === 0 ? (
+        <Card className="p-6 text-center sm:p-8">
+          <h2 className="text-xl font-semibold text-white">
+            {normalizedQuery
+              ? "Nenhum conteúdo em fila corresponde à busca"
+              : "Não há conteúdos aguardando produção"}
+          </h2>
+          <p className="mt-3 text-[15px] leading-7 text-[#b4acc5]">
+            Os roteiros marcados como Publicado estão disponíveis no menu
+            Conteúdos já publicados.
+          </p>
+          <Link
+            href="/conteudos-publicados"
+            className="mt-5 inline-flex h-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-[15px] font-medium text-white"
+          >
+            Abrir conteúdos publicados
+          </Link>
+        </Card>
+      ) : null}
     </div>
   );
 }
+
